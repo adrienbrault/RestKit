@@ -388,6 +388,10 @@ NSString *RKPathAppendQueryParams(NSString *resourcePath, NSDictionary *queryPar
 	return [self load:resourcePath method:RKRequestMethodDELETE params:nil delegate:delegate];
 }
 
+- (RKRequest *)patch:(NSString *)resourcePath queryParameters:(NSDictionary *)queryParameters delegate:(id)delegate {
+	return [self load:resourcePath method:RKRequestMethodPATCH params:queryParameters delegate:delegate];
+}
+
 - (void)serviceDidBecomeUnavailableNotification:(NSNotification *)notification {
     if (self.serviceUnavailableAlertEnabled) {
         RKAlertWithTitle(self.serviceUnavailableAlertMessage, self.serviceUnavailableAlertTitle);

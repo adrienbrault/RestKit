@@ -37,7 +37,8 @@ typedef enum RKRequestMethod {
     RKRequestMethodPOST,
     RKRequestMethodPUT,
     RKRequestMethodDELETE,
-    RKRequestMethodHEAD
+    RKRequestMethodHEAD,
+    RKRequestMethodPATCH
 } RKRequestMethod;
 
 NSString *RKRequestMethodNameFromType(RKRequestMethod);
@@ -751,6 +752,11 @@ typedef void(^RKRequestDidFailLoadWithErrorBlock)(NSError *error);
  Returns YES when this is a HEAD request
  */
 - (BOOL)isHEAD;
+
+/**
+ Returns YES when this is a PATCH request
+ */
+- (BOOL)isPATCH;
 
 /**
  Returns YES when this request is in-progress

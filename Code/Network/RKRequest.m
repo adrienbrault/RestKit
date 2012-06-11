@@ -57,6 +57,10 @@ NSString *RKRequestMethodNameFromType(RKRequestMethod method) {
         case RKRequestMethodHEAD:
             return @"HEAD";
             break;
+        
+        case RKRequestMethodPATCH:
+            return @"PATCH";
+            break;
 
         default:
             break;
@@ -76,6 +80,8 @@ RKRequestMethod RKRequestMethodTypeFromName(NSString *methodName) {
         return RKRequestMethodDELETE;
     } else if ([methodName isEqualToString:@"HEAD"]) {
         return RKRequestMethodHEAD;
+    } else if ([methodName isEqualToString:@"PATCH"]) {
+        return RKRequestMethodPATCH;
     }
 
     return RKRequestMethodInvalid;
@@ -727,6 +733,10 @@ RKRequestMethod RKRequestMethodTypeFromName(NSString *methodName) {
 
 - (BOOL)isHEAD {
 	return _method == RKRequestMethodHEAD;
+}
+
+- (BOOL)isPATCH {
+    return _method == RKRequestMethodPATCH;
 }
 
 - (BOOL)isLoading {
